@@ -2,13 +2,15 @@
 
 export const EVENT_SETTINGS = {
   hostName: "Atlas",
-  eventDate: "2026-06-11T20:00:00",
-  whatsappNumber: "5511999998888",
+  eventDate: "2026-07-05T19:00:00",
+  whatsappNumber: "5592985624179",
+  eventDateText: "Domingo, 05 de Julho de 2026",
+  eventTimeText: "Largada às 19:00h",
   mapsLink: "https://www.google.com/maps/place/3°00'45.3\"S+59°57'59.0\"W/@-3.0125307,-59.9666279,21z",
-  locationAddress: "Flo's V8 Cafe - Rota 66 (Espaço Vintage, São Paulo - SP)",
-  locationName: "Flo's V8 Cafe",
-  timeText: "Sábado, 11 de Julho de 2026 • Largada às 20:00h",
-  descriptionText: "Liguem seus motores! Estou comemorando mais uma volta na pista da vida e você foi convocado para o grid de largada. Prepare-se para uma noite de muita adrenalina, música boa e diversão no Flo's V8 Cafe. Sua presença é meu combustível para acelerar nesse novo ciclo!"
+  locationAddress: "Av. Margarita, 16 - Nova Cidade",
+  locationName: "Av. Margarita, 16 - Nova Cidade",
+  timeText: "Domingo, 05 de Julho de 2026 • Largada às 19:00h",
+  descriptionText: "Estou completando meu primeiro ano de vida e você é meu convidado especial para essa grande comemoração! 🎉 Vamos nos reunir para celebrar esse momento único com muita alegria, diversão e boas lembranças. Espero você para fazer parte dessa data tão importante! 🏁✨"
 };
 
 export const GIFT_SUGGESTIONS = [
