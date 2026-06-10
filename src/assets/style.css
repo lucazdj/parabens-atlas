@@ -11,11 +11,11 @@
   /* Theme Palette from example.png */
   --clr-bg-light: #f7f4eb; /* Warm cream/beige background */
   --clr-primary: #e82b2b; /* McQueen Red */
-  --clr-primary-glow: rgba(232, 43, 43, 0.2);
-  --clr-secondary: #f5b027; /* Magical Disney Gold/Yellow */
-  --clr-secondary-glow: rgba(245, 176, 39, 0.3);
-  --clr-accent: #1b9cfc; /* Skyline Disney Blue */
-  --clr-accent-glow: rgba(27, 156, 252, 0.2);
+  --clr-primary-glow: rgba(232, 43, 43, 0.4);
+  --clr-secondary: #ffc107; /* Racing Yellow */
+  --clr-secondary-glow: rgba(255, 193, 7, 0.4);
+  --clr-accent: #e82b2b; /* Change from Skyline Blue to McQueen Red */
+  --clr-accent-glow: rgba(232, 43, 43, 0.3);
   
   --clr-text-main: #3d3b38; /* Soft charcoal */
   --clr-text-muted: #6b6762; /* Slate gray */
@@ -50,46 +50,69 @@ body {
   font-size: 1.15rem;
 }
 
-/* --- Festive Bunting & Stars Background --- */
+/* --- Background Wrapper --- */
 .background-wrapper {
   position: fixed;
+  background-repeat: no-repeat;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: -2;
-  background-color: var(--clr-bg-light);
+  background-size: cover;
+  background-color: #e0e0e0; /* Asphalt Grey Background */
+  background-image:  url("./radiator.jpg");
   overflow: hidden;
 }
 
-/* Faint Decorative Stars in Background */
+/* Road lines in background */
+.background-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 10px;
+  height: 100%;
+  background: repeating-linear-gradient(to bottom, #fff 0, #fff 40px, transparent 40px, transparent 80px);
+  opacity: 0.15;
+  transform: translateX(-50%);
+}
+
+/* Faint Decorative Stars in Background - Changed to traffic elements */
 .bg-star-faint {
   position: absolute;
-  color: #ebdcb9; /* very light gold */
-  opacity: 0.45;
+  color: var(--clr-primary); 
+  opacity: 0.1;
   pointer-events: none;
   z-index: -2;
+  font-size: 100px;
+}
+
+.bg-star-1::after {
+  content: '🏎️';
+}
+
+.bg-star-2::after {
+  content: '🚦';
+}
+
+.bg-star-3::after {
+  content: '🚩';
 }
 
 .bg-star-1 {
-  width: 250px;
-  height: 250px;
   top: 15%;
   left: -50px;
   transform: rotate(15deg);
 }
 
 .bg-star-2 {
-  width: 300px;
-  height: 300px;
   bottom: 10%;
   right: -80px;
   transform: rotate(-25deg);
 }
 
 .bg-star-3 {
-  width: 120px;
-  height: 120px;
   top: 60%;
   left: 10%;
   transform: rotate(45deg);
@@ -101,6 +124,52 @@ body {
   max-width: 500px;
   padding: 1.5rem;
   z-index: 1;
+  position: relative;
+}
+
+/* --- Cars Theme Additions --- */
+.cars-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.cars-logo {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+.cars-decoration {
+  position: absolute;
+  width: 140px;
+  height: auto;
+  z-index: 10;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+.cars-decoration.mcqueen {
+  top: 10%;
+  left: -40px;
+  transform: rotate(-15deg);
+}
+
+.cars-decoration.mater {
+  bottom: 20%;
+  right: -40px;
+  transform: rotate(15deg);
+}
+
+@media (max-width: 600px) {
+  .cars-decoration.mcqueen {
+    left: 0;
+    width: 120px;
+  }
+  .cars-decoration.mater {
+    right: 0;
+    width: 120px;
+  }
 }
 
 .route-container {
@@ -140,29 +209,33 @@ body {
   background: var(--glass-bg);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border: 3px solid var(--glass-border);
+  border: 4px solid var(--clr-primary); /* Thick Red Border */
   border-radius: 28px;
-  padding: 4.5rem 1.8rem 2.5rem 1.8rem; /* extra top padding for bunting flags */
-  box-shadow: 0 20px 45px var(--glass-shadow),
-              inset 0 1px 1px #fff;
+  padding: 4.5rem 1.8rem 4rem 1.8rem; /* Adjusted bottom padding for road */
+  box-shadow: 
+    0 20px 45px var(--glass-shadow),
+    0 0 0 6px rgba(232, 43, 43, 0.1),
+    inset 0 1px 1px #fff;
   text-align: center;
   position: relative;
-  overflow: visible; /* Let stars float slightly outside card boundaries */
 }
+
+
 
 /* --- Profile Section --- */
 .profile-section {
   position: relative;
-  margin-bottom: 1.75rem;
+  margin-bottom: 2.5rem; /* Increased margin */
   display: inline-block;
   z-index: 3;
 }
 
 .avatar-wrapper {
   width: 100%;
-  padding: 5px;
-  background: linear-gradient(135deg, var(--clr-secondary) 0%, var(--clr-primary) 100%);
-  box-shadow: 0 6px 20px rgba(184, 150, 110, 0.35);
+  padding: 8px; /* Slightly thicker */
+  background: var(--clr-primary); /* Pure McQueen Red */
+  border-radius: 12px; /* Less rounded for a more industrial look */
+  box-shadow: 0 8px 25px var(--clr-primary-glow);
   position: relative;
 }
 
@@ -172,7 +245,30 @@ body {
   object-fit: cover;
   background-color: #f7f4eb;
   border: 4px solid #fff;
+  border-radius: 6px; /* Match wrapper */
   display: block;
+}
+
+/* Road cones decoration around profile */
+.profile-section::before, .profile-section::after {
+  content: '⚠️';
+  position: absolute;
+  font-size: 1.5rem;
+  z-index: 5;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.profile-section::before {
+  top: -15px;
+  left: -15px;
+  transform: rotate(-20deg);
+}
+
+.profile-section::after {
+  bottom: -5px;
+  left: -15px;
+  content: '🏁';
+  transform: rotate(15deg);
 }
 
 .avatar-placeholder {
@@ -248,9 +344,14 @@ body {
   line-height: 1.05;
   margin-bottom: 0.25rem;
   text-transform: uppercase;
-  color: var(--clr-secondary);
-  /* Flat cartoon style drop shadow */
-  text-shadow: 3px 3px 0px #4e3814;
+  color: #fff;
+  /* Red outline style for McQueen */
+  text-shadow: 
+    -2px -2px 0 var(--clr-primary),  
+     2px -2px 0 var(--clr-primary),
+    -2px  2px 0 var(--clr-primary),
+     2px  2px 0 var(--clr-primary),
+     4px  4px 0px rgba(0,0,0,0.2);
   letter-spacing: -0.01em;
 }
 
@@ -283,20 +384,36 @@ body {
 
 .countdown-box {
   background: #fff;
-  border: 3px solid var(--clr-secondary);
-  border-radius: 16px;
-  padding: 0.75rem 0.2rem;
+  border: 3px solid var(--clr-primary);
+  border-radius: 12px;
+  padding: 0.8rem 0.4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 6px 15px rgba(184, 150, 110, 0.15);
+  box-shadow: 0 4px 10px rgba(232, 43, 43, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Road lines inside countdown box */
+.countdown-box::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #eee;
+  z-index: 0;
 }
 
 .countdown-val {
   font-family: var(--font-display);
-  font-size: 1.9rem;
+  font-size: 1.85rem;
+  line-height: 1;
   color: var(--clr-primary);
-  line-height: 1.1;
+  display: block;
+  z-index: 1;
 }
 
 .countdown-lbl {
@@ -307,15 +424,24 @@ body {
   margin-top: 2px;
 }
 
-/* --- Details List (Clean Light styling) --- */
+/* --- Details List (Racing themed) --- */
 .details-list {
   text-align: left;
   background: rgba(251, 249, 244, 0.95);
-  border: 2px solid #ebdcb9;
+  border: 4px solid var(--clr-primary);
   border-radius: 20px;
   padding: 1.25rem;
   margin-bottom: 2.25rem;
-  box-shadow: 0 5px 15px rgba(184, 150, 110, 0.1);
+  box-shadow: 0 5px 15px rgba(232, 43, 43, 0.15);
+  position: relative;
+}
+
+.details-list::before {
+  content: '🏁';
+  position: absolute;
+  top: -15px;
+  right: 15px;
+  font-size: 1.5rem;
 }
 
 .detail-item {
@@ -330,20 +456,22 @@ body {
 }
 
 .detail-icon-box {
-  background: rgba(27, 156, 252, 0.15);
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  background: var(--clr-primary);
+  width: 44px;
+  height: 44px;
+  border-radius: 8px; /* Road sign shape */
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--clr-accent);
+  color: #fff;
   flex-shrink: 0;
+  border: 2px solid #fff;
+  box-shadow: 0 4px 8px var(--clr-primary-glow);
 }
 
 .detail-icon-box.loc {
-  background: rgba(232, 43, 43, 0.12);
-  color: var(--clr-primary);
+  background: var(--clr-primary);
+  color: #fff;
 }
 
 .detail-icon-box svg {
@@ -366,7 +494,7 @@ body {
 }
 
 .detail-content p .blue-date {
-  color: var(--clr-accent);
+  color: var(--clr-primary);
   font-weight: 700;
 }
 
@@ -407,14 +535,14 @@ body {
 }
 
 .btn-secondary {
-  background: var(--clr-accent);
+  background: var(--clr-primary);
   color: #ffffff;
-  box-shadow: 0 5px 15px var(--clr-accent-glow);
+  box-shadow: 0 5px 15px var(--clr-primary-glow);
 }
 
 .btn-secondary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(27, 156, 252, 0.4);
+  box-shadow: 0 8px 20px var(--clr-primary-glow);
 }
 
 .btn-accent {
@@ -561,7 +689,7 @@ body {
 
 .gift-card {
   background: #fff;
-  border: 2px solid #ebdcb9;
+  border: 3px solid var(--clr-primary); /* Red border */
   border-radius: 18px;
   padding: 1rem;
   display: flex;
@@ -569,27 +697,27 @@ body {
   gap: 1rem;
   text-align: left;
   transition: var(--transition-fast);
-  box-shadow: 0 4px 12px rgba(184, 150, 110, 0.08);
+  box-shadow: 0 4px 12px rgba(232, 43, 43, 0.1);
 }
 
 .gift-card:hover {
   border-color: var(--clr-secondary);
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(184, 150, 110, 0.15);
+  box-shadow: 0 6px 15px var(--clr-primary-glow);
 }
 
 .gift-icon {
-  background: rgba(245, 176, 39, 0.1);
+  background: var(--clr-primary);
   width: 48px;
   height: 48px;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--clr-secondary);
+  color: #fff;
   font-size: 1.4rem;
   flex-shrink: 0;
-  border: 1px solid rgba(245, 176, 39, 0.2);
+  border: 2px solid #fff;
 }
 
 .gift-info {

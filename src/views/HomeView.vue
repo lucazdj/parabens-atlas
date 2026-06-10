@@ -1,65 +1,31 @@
 <template>
   <div class="route-container">
     <div class="glass-card">
-      
-      <!-- Hanging Colorful Party Bunting Banner -->
-      <svg class="bunting-svg" viewBox="0 0 440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 8C110 24 330 24 440 8" stroke="#ebdcb9" stroke-width="1.5" stroke-dasharray="2 2"/>
-        <polygon points="15,10 40,13 27,38" fill="#1b9cfc"/>
-        <polygon points="55,14 80,16 67,41" fill="#f5b027"/>
-        <polygon points="95,17 120,18 107,43" fill="#e82b2b"/>
-        <polygon points="135,19 160,19 147,44" fill="#2ecc71"/>
-        <polygon points="175,20 200,20 187,45" fill="#1b9cfc"/>
-        <polygon points="215,20 240,20 227,45" fill="#f5b027"/>
-        <polygon points="255,19 280,19 267,44" fill="#e82b2b"/>
-        <polygon points="295,18 320,17 307,42" fill="#2ecc71"/>
-        <polygon points="335,16 360,14 347,39" fill="#1b9cfc"/>
-        <polygon points="375,13 400,10 387,35" fill="#f5b027"/>
-      </svg>
+      <div class="cars-header">
+        <img src="@/assets/cars_logo.png" alt="Cars Logo" class="cars-logo">
+      </div>
 
-      <!-- Floating Sparkles (Four-pointed stars) -->
-      <svg class="sparkle sparkle-green" style="top: 80px; left: -10px; width: 34px; height: 34px;" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4Z"/>
-      </svg>
-      <svg class="sparkle sparkle-gold" style="top: 90px; right: 10px; width: 28px; height: 28px;" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4Z"/>
-      </svg>
-      <svg class="sparkle sparkle-red" style="bottom: 240px; left: 15px; width: 32px; height: 32px;" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4Z"/>
-      </svg>
-      <svg class="sparkle sparkle-blue" style="bottom: 160px; right: 15px; width: 26px; height: 26px;" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4Z"/>
-      </svg>
+      <!-- Cars Decorative Images -->
+      <img src="@/assets/lightning-mcqueen.png" class="cars-decoration mcqueen" alt="Lightning McQueen">
+      <img src="@/assets/mater.png" class="cars-decoration mater" alt="Mater">
       
       <!-- Profile Picture Section -->
       <div class="profile-section">
         <div class="avatar-wrapper">
           <!-- Image with graceful fallback if the asset is missing -->
           <img 
-            v-if="!imageError"
             :src="profilePic" 
             alt="Aniversariante" 
             class="avatar-img" 
-            @error="handleImageError"
           />
-          <div v-else class="avatar-placeholder">
-            <!-- Celestial Astrological Placeholder SVG -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="12" r="10"/>
-              <circle cx="12" cy="12" r="6" stroke-dasharray="2 2"/>
-              <path d="M12 2v2M12 20v2M2 12h2M20 12h2" stroke-linecap="round"/>
-              <circle cx="12" cy="12" r="2" fill="currentColor"/>
-            </svg>
-            <span>{{ settings.hostName }}</span>
-          </div>
         </div>
         <div class="birthday-badge">
-          🎈 1 aninho
+          🏁 1 aninho
         </div>
       </div>
 
       <!-- Header Content -->
-      <p class="invite-top-text">Você está convidado para uma Aventura!</p>
+      <p class="invite-top-text">Liguem seus motores!</p>
       <h1 class="title">FESTA DO {{ settings.hostName }}</h1>
       <p class="subtitle">CORRIDA DE ANIVERSÁRIO</p>
       <p class="description">{{ settings.descriptionText }}</p>
@@ -173,7 +139,6 @@ export default {
   name: 'HomeView',
   setup() {
     const settings = EVENT_SETTINGS;
-    const imageError = ref(false);
     
     // Countdown Timer State
     const days = ref(0);
@@ -182,10 +147,6 @@ export default {
     const seconds = ref(0);
     const countdownFinished = ref(false);
     let timerInterval = null;
-
-    const handleImageError = () => {
-      imageError.value = true;
-    };
 
     const calculateCountdown = () => {
       const target = new Date(settings.eventDate).getTime();
@@ -225,9 +186,7 @@ export default {
 
     return {
       settings,
-      imageError,
       profilePic,
-      handleImageError,
       days,
       hours,
       minutes,
