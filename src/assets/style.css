@@ -124,7 +124,6 @@ body {
   max-width: 500px;
   padding: 1.5rem;
   z-index: 1;
-  position: relative;
 }
 
 /* --- Cars Theme Additions --- */
@@ -150,25 +149,81 @@ body {
 }
 
 .cars-decoration.mcqueen {
-  top: 10%;
+  top: 5%;
   left: -40px;
   transform: rotate(-15deg);
 }
 
 .cars-decoration.mater {
-  bottom: 20%;
-  right: -40px;
+  top: 40%;
+  right: -50px;
   transform: rotate(15deg);
+}
+
+.cars-decoration.sally {
+  bottom: 30%;
+  left: -45px;
+  transform: rotate(-10deg);
+}
+
+.cars-decoration.guido {
+  bottom: 20%;
+  right: -35px;
+  transform: rotate(10deg);
+}
+
+.cars-bandeiras {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.all-cars-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  height: 480px;
+  border-radius: 24px;
+}
+
+@media (max-width: 440px) {
+  .all-cars-container {
+    height: 400px;
+  }
+}
+
+.all-cars-img {
+  width: 120%;
+  height: auto;
+  bottom: 0;
+  position: absolute;
 }
 
 @media (max-width: 600px) {
   .cars-decoration.mcqueen {
     left: 0;
-    width: 120px;
+    width: 100px;
   }
   .cars-decoration.mater {
     right: 0;
-    width: 120px;
+    width: 110px;
+  }
+  .cars-decoration.sally {
+    left: 0;
+    width: 90px;
+  }
+  .cars-decoration.guido {
+    right: 0;
+    width: 80px;
   }
 }
 
@@ -211,7 +266,7 @@ body {
   -webkit-backdrop-filter: blur(15px);
   border: 4px solid var(--clr-primary); /* Thick Red Border */
   border-radius: 28px;
-  padding: 4.5rem 1.8rem 4rem 1.8rem; /* Adjusted bottom padding for road */
+  padding: 4.5rem 1.8rem 28rem 1.8rem; /* Adjusted bottom padding for road */
   box-shadow: 
     0 20px 45px var(--glass-shadow),
     0 0 0 6px rgba(232, 43, 43, 0.1),
@@ -220,7 +275,11 @@ body {
   position: relative;
 }
 
-
+@media (max-width: 440px) {
+  .glass-card {
+    padding: 4.5rem 1.8rem 24rem 1.8rem; /* Adjusted bottom padding for road */
+  }
+}
 
 /* --- Profile Section --- */
 .profile-section {

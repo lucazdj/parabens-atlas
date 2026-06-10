@@ -8,7 +8,8 @@
       <!-- Cars Decorative Images -->
       <img src="@/assets/lightning-mcqueen.png" class="cars-decoration mcqueen" alt="Lightning McQueen">
       <img src="@/assets/mater.png" class="cars-decoration mater" alt="Mater">
-      
+      <img src="@/assets/sally.png" class="cars-decoration sally" alt="Sally">
+      <img src="@/assets/guido.png" class="cars-decoration guido" alt="Guido">
       <!-- Profile Picture Section -->
       <div class="profile-section">
         <div class="avatar-wrapper">
@@ -124,6 +125,10 @@
       <!-- Footing context -->
       <div class="invite-footer">
         Mal podemos esperar para ver você na pista!
+      </div>
+
+      <div class="all-cars-container">
+        <img src="@/assets/all cars.png" alt="All Cars" class="all-cars-img">
       </div>
 
     </div>

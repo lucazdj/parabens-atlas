@@ -8,6 +8,11 @@
       <!-- Cars Decorative Images -->
       <img src="@/assets/lightning-mcqueen.png" class="cars-decoration mcqueen" alt="Lightning McQueen">
       <img src="@/assets/mater.png" class="cars-decoration mater" alt="Mater">
+      <img src="@/assets/sally.png" class="cars-decoration sally" alt="Sally">
+      <img src="@/assets/guido.png" class="cars-decoration guido" alt="Guido">
+
+      <!-- Banners -->
+      <img src="@/assets/bandeiras.png" class="cars-bandeiras" alt="Bandeiras">
 
       <!-- Header area -->
       <div class="gifts-header">
@@ -46,6 +51,10 @@
           </div>
 
         </div>
+      </div>
+
+      <div class="all-cars-container">
+        <img src="@/assets/all cars.png" alt="All Cars" class="all-cars-img">
       </div>
     </div>
 
