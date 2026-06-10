@@ -11,9 +11,6 @@
       <img src="@/assets/sally.png" class="cars-decoration sally" alt="Sally">
       <img src="@/assets/guido.png" class="cars-decoration guido" alt="Guido">
 
-      <!-- Banners -->
-      <img src="@/assets/bandeiras.png" class="cars-bandeiras" alt="Bandeiras">
-
       <!-- Header area -->
       <div class="gifts-header">
         <router-link to="/" class="btn-back" title="Voltar ao Convite">
