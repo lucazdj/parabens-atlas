@@ -544,7 +544,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  max-height: 380px;
   overflow-y: auto;
   padding-right: 0.25rem;
   scrollbar-width: thin;
@@ -602,6 +601,10 @@ body {
   font-weight: 700;
   color: var(--clr-text-main);
   margin-bottom: 2px;
+}
+
+.gift-description {
+  font-size: 1rem;
 }
 
 .gift-category-badge {
